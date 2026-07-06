@@ -53,7 +53,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
 # Title
 st.title("🏦 Loan Approval Prediction System")
 st.markdown("### Enter Loan Details")
@@ -62,37 +61,48 @@ st.markdown("### Enter Loan Details")
 col1, col2 = st.columns(2)
 
 with col1:
+
     credit_score = st.number_input(
-        "Credit Score",
-        min_value=300,
-        max_value=900,
-        value=700
+        "💳 Credit Score",
+        min_value=550,
+        max_value=799,
+        value=676,
+        step=1
     )
 
     income = st.number_input(
-        "Applicant Income",
-        min_value=0,
-        value=10000
+        "💰 Applicant Income",
+        min_value=2009,
+        max_value=19988,
+        value=10852,
+        step=100
     )
 
     loan_amount = st.number_input(
-        "Loan Amount",
-        min_value=0,
-        value=10000
+        "🏦 Loan Amount",
+        min_value=1015,
+        max_value=39995,
+        value=20523,
+        step=500
     )
 
 with col2:
+
     dti_ratio = st.number_input(
-        "DTI Ratio",
-        min_value=0.0,
-        max_value=1.0,
-        value=0.30
+        "📊 DTI Ratio",
+        min_value=0.10,
+        max_value=0.60,
+        value=0.35,
+        step=0.01,
+        format="%.2f"
     )
 
     loan_term = st.number_input(
-        "Loan Term (Months)",
-        min_value=1,
-        value=24
+        "📅 Loan Term (Months)",
+        min_value=12,
+        max_value=84,
+        value=48,
+        step=12
     )
 
 st.write("")
@@ -113,9 +123,9 @@ if st.button("🔍 Predict Loan Status"):
     prediction = model.predict(data)
     probability = model.predict_proba(data)
 
-    st.write("### Prediction Probability")
-    st.write(f"Rejected : {probability[0][0]*100:.2f}%")
-    st.write(f"Approved : {probability[0][1]*100:.2f}%")
+    st.subheader("Prediction Probability")
+    st.write(f"❌ Rejected : {probability[0][0]*100:.2f}%")
+    st.write(f"✅ Approved : {probability[0][1]*100:.2f}%")
 
     if prediction[0] == 1:
         st.success(
@@ -127,8 +137,3 @@ if st.button("🔍 Predict Loan Status"):
         st.error(
             f"❌ Loan Rejected ({probability[0][0]*100:.2f}% Confidence)"
         )
-
-
-                         
-                         
-                         
