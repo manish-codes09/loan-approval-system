@@ -9,6 +9,9 @@ A Machine Learning web application that predicts whether a loan application will
 * Interactive Streamlit Interface
 * Fast Real-Time Predictions
 
+ ## live demo
+ https://loan-approval-system-acl45zybhluzfpu53wc9sl.streamlit.app/
+
 ## 🛠️ Tech Stack
 
 * Python
