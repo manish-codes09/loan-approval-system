@@ -32,10 +32,4 @@ A Machine Learning web application that predicts whether a loan application will
 
 ## 👨‍💻 Author
 
-**Manish**
-
-
-
-
-
-**Manish**
+**Manish patel**
